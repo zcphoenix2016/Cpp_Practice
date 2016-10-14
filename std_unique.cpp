@@ -6,9 +6,10 @@ int main()
 {
     std::string str{"12223455556"};
 
-    auto end = std::unique(str.begin(), str.end(), [](char l, char r){return l == r;});
+    auto sameChar = [](char l, char r){return l == r;};
+    str.erase(std::unique(str.begin(), str.end(), sameChar), str.end());
 
-    std::cout << std::string(str.begin(), end) << std::endl;
+    std::cout << str << std::endl;
 
     return 0;
 }
